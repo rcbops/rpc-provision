@@ -25,3 +25,5 @@ container_cidr_mask: "24"
 tunnel_cidr_prefix: "172.16.1."
 tunnel_cidr_mask: "24"
 ```
+
+Then just run `ansible-playbook site.yml` to prepare your cloud servers for RPC.

@@ -1,0 +1,72 @@
+---
+- name: Setup cluster hosts
+  hosts: cluster
+  tasks:
+    - name: Update cache and upgrade system
+      apt: update_cache=yes upgrade=dist
+
+    - name: Install bridge-utils
+      apt: name=bridge-utils
+
+    # - name: Ensure container network IP
+    #   lineinfile: dest=/etc/network/interfaces insertafter="^iface eth2" regexp="address" line="    address {{ container_ip }}"
+
+    # - name: Remove explicit netmask
+    #   lineinfile: dest=/etc/network/interfaces regexp="^.*netmask 255.255.240.0" state=absent
+
+    # - name: Add manual entry for vxlan42
+    #   lineinfile: dest=/etc/network/interfaces insertafter=EOF line="{{item}}" regexp="^{{item}}"
+    #   with_items:
+    #     - ""
+    #     - "auto vxlan42"
+    #     - "iface vxlan42 inet manual"
+    #     - "    pre-up ip link add vxlan42 type vxlan id 42 group 239.0.0.42 dev eth2 || true"
+    #     - "    up ip link set $IFACE up"
+    #     - "    down ip link set $IFACE down"
+    #     - "    post-down ip link del vxlan42 || true"
+
+    # - name: Add manual entry for br-mgmt
+    #   lineinfile: dest=/etc/network/interfaces insertafter=EOF line="{{item}}" regexp="^{{item}}"
+    #   with_items:
+    #     - ""
+    #     - "auto br-mgmt"
+    #     - "iface br-mgmt inet static"
+    #     - "    bridge_ports vxlan42"
+    #     - "    address {{tunnel_ip}}"
+
+    - name: Ensure container network interface
+      interfaces: >
+        name=eth2
+        iface_type=static
+        address={{tunnel_ip}}
+        force=true
+
+    - name: Add vxlan42 interface
+      interfaces: >-
+        name=vxlan42
+        iface_type=manual
+        updown="pre-up ip link add vxlan42 type vxlan id 42 group 239.0.0.42 dev eth2 || true","up ip link set $IFACE up","down ip link set $IFACE down","post-down ip link del vxlan42 || true"
+        force=true
+
+    - name: Add br-mgmt interface
+      interfaces: >-
+        name=br-mgmt
+        iface_type=static
+        address={{container_ip}}
+        updown="bridge_ports vxlan42"
+        force=true
+
+    # - name: Bring down eth2
+    #   command: ifdown eth2
+    #
+    # - name: Bring up eth2
+    #   command: ifup eth2
+    #
+    # - name: Bring up vxlan42 and br-mgmt
+    #   command: ifup vxlan42
+
+    - name: Reboot
+      command: reboot
+
+    - name: Wait for SSH to come back
+      local_action: wait_for port=22 host="{{ ansible_ssh_host }}" search_regex=OpenSSH delay=10

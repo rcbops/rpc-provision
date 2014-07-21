@@ -1,6 +1,7 @@
 #Rackspace Cloud Server Provisioner
 
-Use this to provision cloud servers you've already configured.
+Use this to provision cloud servers you've already booted with a cloud network
+to setup VXLAN tunnels for unfiltered inter-host traffic.
 
 #Python Requirements
 

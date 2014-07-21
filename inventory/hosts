@@ -1,11 +1,8 @@
 [cluster]
-apsu-jenkins-node1 ansible_ssh_host=104.130.3.235 ansible_ssh_user=root container_ip=172.16.0.1/20 tunnel_ip=172.16.16.1/24
-apsu-jenkins-node2 ansible_ssh_host=104.130.4.52  ansible_ssh_user=root container_ip=172.16.0.2/20 tunnel_ip=172.16.16.2/24
-apsu-jenkins-node3 ansible_ssh_host=104.130.5.36  ansible_ssh_user=root container_ip=172.16.0.3/20 tunnel_ip=172.16.16.3/24
-apsu-jenkins-node4 ansible_ssh_host=104.130.3.93  ansible_ssh_user=root container_ip=172.16.0.4/20 tunnel_ip=172.16.16.4/24
-apsu-jenkins-node5 ansible_ssh_host=104.130.5.61  ansible_ssh_user=root container_ip=172.16.0.5/20 tunnel_ip=172.16.16.5/24
-apsu-jenkins-node6 ansible_ssh_host=104.130.5.87  ansible_ssh_user=root container_ip=172.16.0.6/20 tunnel_ip=172.16.16.6/24
-apsu-jenkins-node7 ansible_ssh_host=104.130.6.212  ansible_ssh_user=root container_ip=172.16.0.7/20 tunnel_ip=172.16.16.7/24
-
-[master]
-apsu-jenkins-master ansible_ssh_host=162.242.239.241 ansible_ssh_user=root container_ip=172.16.1.1/20 tunnel_ip=172.16.16.254/24
+node1 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.1/24 tunnel_ip=172.16.16.1/24
+node2 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.2/24 tunnel_ip=172.16.16.2/24
+node3 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.3/24 tunnel_ip=172.16.16.3/24
+node4 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.4/24 tunnel_ip=172.16.16.4/24
+node5 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.5/24 tunnel_ip=172.16.16.5/24
+node6 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.6/24 tunnel_ip=172.16.16.6/24
+node7 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.7/24 tunnel_ip=172.16.16.7/24

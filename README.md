@@ -1,6 +1,13 @@
-#Usage
+#Rackspace Cloud Server Provisioner
 
 Use this to provision cloud servers you've already configured.
+
+#Python Requirements
+
+- PyYaml
+- rackspace-novaclient
+
+#Usage
 
 This expects a .config.yml in the clone root formatted as follows:
 

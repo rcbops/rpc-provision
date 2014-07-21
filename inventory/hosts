@@ -1,8 +1,0 @@
-[cluster]
-node1 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.1/24 tunnel_ip=172.16.16.1/24
-node2 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.2/24 tunnel_ip=172.16.16.2/24
-node3 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.3/24 tunnel_ip=172.16.16.3/24
-node4 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.4/24 tunnel_ip=172.16.16.4/24
-node5 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.5/24 tunnel_ip=172.16.16.5/24
-node6 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.6/24 tunnel_ip=172.16.16.6/24
-node7 ansible_ssh_host=x.x.x.x ansible_ssh_user=root container_ip=172.16.0.7/24 tunnel_ip=172.16.16.7/24

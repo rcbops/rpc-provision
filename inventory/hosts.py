@@ -30,7 +30,7 @@ def get_hosts():
   )
 
   # Ignore first three and last output lines
-  lines = output.splitlines()[3:-2]
+  lines = output.splitlines()[3:-1]
 
   # Initialize dynamic inventory output
   hosts = {"cluster": {"hosts": []}, "_meta": {"hostvars": {}}}

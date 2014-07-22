@@ -53,10 +53,10 @@ def get_hosts():
           "ansible_ssh_host": ipv4.strip(),
           "ansible_ssh_user": "root",
           "container_ip": config["container_cidr_prefix"] +
-                          str(index) + "/" +
+                          str(index + 1) + "/" +
                           config["container_cidr_mask"],
           "tunnel_ip": config["tunnel_cidr_prefix"] +
-                          str(index) + "/" +
+                          str(index + 1) + "/" +
                           config["tunnel_cidr_mask"]
         }
       }
